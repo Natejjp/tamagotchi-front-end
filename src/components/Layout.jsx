@@ -2,14 +2,20 @@ import { Link } from 'react-router-dom'
 
 export function Layout({ children }) {
   return (
-    <>
-      <header>
-        <h1>
-          <Link to="/">Tamagotchi</Link>
-        </h1>
+    <div className="layout">
+      <header className="header">
+        <div className="container">
+          <h1>
+            <Link to="/">Tamagotchi</Link>
+          </h1>
+        </div>
       </header>
-      <main>{children}</main>
-      <footer>Footer</footer>
-    </>
+      <main className="main">
+        <div className="container">{children}</div>
+      </main>
+      <footer className="footer">
+        <div className="container">Footer</div>
+      </footer>
+    </div>
   )
 }

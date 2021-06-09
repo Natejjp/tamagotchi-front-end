@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 export function Home() {
   return (
     <>
-      <h2>Home</h2>
-      <div>
+      <h2 className="title">Current Pets</h2>
+      <div className="pets">
         <ul>
-          <li>
+          <li className="name">
             <Link to="/1">Pet Name</Link>
           </li>
           <li>Birthday</li>
@@ -15,7 +15,7 @@ export function Home() {
           <li>Happiness</li>
         </ul>
         <ul>
-          <li>
+          <li className="name">
             <Link to="/1">Pet Name</Link>
           </li>
           <li>Birthday</li>
@@ -23,7 +23,23 @@ export function Home() {
           <li>Happiness</li>
         </ul>
         <ul>
-          <li>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
             <Link to="/1">Pet Name</Link>
           </li>
           <li>Birthday</li>
