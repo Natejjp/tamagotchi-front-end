@@ -46,6 +46,86 @@ export function Home() {
           <li>Hunger</li>
           <li>Happiness</li>
         </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
+        <ul>
+          <li className="name">
+            <Link to="/1">Pet Name</Link>
+          </li>
+          <li>Birthday</li>
+          <li>Hunger</li>
+          <li>Happiness</li>
+        </ul>
       </div>
     </>
   )
