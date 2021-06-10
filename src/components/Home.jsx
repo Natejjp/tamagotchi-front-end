@@ -2,6 +2,10 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+function getDate(birthday) {
+  const parts = birthday.split('T')
+  return parts[parts.length - 2]
+}
 export function Home() {
   const [pets, setPets] = useState([])
   const [newPet, setNewPet] = useState('')
@@ -41,13 +45,13 @@ export function Home() {
             <li className="name">
               <Link to={`/${pet.id}`}>{pet.name}</Link>
             </li>
-            <li>Birthday: {pet.birthday}</li>
+            <li>Birthday: {getDate(pet.birthday)}</li>
             <li>Hunger: {pet.hungerLevel}</li>
             <li>Happiness: {pet.happinessLevel}</li>
           </ul>
         ))}
       </div>
-      <form onSubmit={handleAdd}>
+      <form className="test" onSubmit={handleAdd}>
         <label>Enter Pet Name</label>
         <input
           type="text"

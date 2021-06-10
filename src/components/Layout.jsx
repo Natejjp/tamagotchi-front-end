@@ -15,7 +15,7 @@ export function Layout({ children }) {
         <div className="container">{children}</div>
       </main>
       <footer className="footer">
-        <div className="container">Footer</div>
+        <div className="container">Friends not Pets</div>
       </footer>
     </div>
   )
