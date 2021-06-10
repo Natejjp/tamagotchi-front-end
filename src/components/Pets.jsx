@@ -14,8 +14,6 @@ export function Pets() {
     scoldings: null,
   })
 
-  const [happiness, setHappiness] = useState(pet.happinessLevel)
-
   const params = useParams()
 
   useEffect
@@ -32,9 +30,31 @@ export function Pets() {
 
   fetchPet(), []
 
-  async function handleAddHappiness() {
+  async function handlePlay() {
     const response = await axios.post(
       `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Playtimes`,
+      {}
+    )
+
+    if (response.status === 200) {
+      fetchPet()
+    }
+  }
+
+  async function handleFeed() {
+    const response = await axios.post(
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Feedings`,
+      {}
+    )
+
+    if (response.status === 200) {
+      fetchPet()
+    }
+  }
+
+  async function handleScold() {
+    const response = await axios.post(
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Scoldings`,
       {}
     )
 
@@ -50,9 +70,9 @@ export function Pets() {
       <p>Hunger: {pet.hungerLevel}</p>
       <p>Happiness: {pet.happinessLevel}</p>
 
-      <button onClick={handleAddHappiness}>Play with Pet</button>
-      <button>Feed the Pet</button>
-      <button>Scold the Pet</button>
+      <button onClick={handlePlay}>Play with Pet</button>
+      <button onClick={handleFeed}> Feed the Pet</button>
+      <button onClick={handleScold}>Scold the Pet</button>
       <button>delete</button>
     </>
   )
