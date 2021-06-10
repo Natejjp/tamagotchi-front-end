@@ -3,28 +3,34 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Home() {
-  const [pet, setPet] = useState([])
+  const [pets, setPets] = useState([])
 
-  useEffect(async function () {
-    const response = await axios.get(
-      'https://tamagotchinate.herokuapp.com/api/Pets'
-    )
+  useEffect(function () {
+    async function loadPets() {
+      const response = await axios.get(
+        'https://tamagotchinate.herokuapp.com/api/Pets'
+      )
 
-    setPet(response.data)
+      setPets(response.data)
+    }
+
+    loadPets()
   }, [])
 
   return (
     <>
       <h2 className="title">Current Pets</h2>
       <div className="pets">
-        <ul>
-          <li className="name">
-            <Link to="/1">Pet Name</Link>
-          </li>
-          <li>Birthday</li>
-          <li>Hunger</li>
-          <li>Happiness</li>
-        </ul>
+        {pets.map(pet => (
+          <ul key={pet.id}>
+            <li className="name">
+              <Link to="/1">{pet.name}</Link>
+            </li>
+            <li>{pet.birthday}</li>
+            <li>{pet.hunger}</li>
+            <li>{pet.happiness}</li>
+          </ul>
+        ))}
       </div>
     </>
   )
