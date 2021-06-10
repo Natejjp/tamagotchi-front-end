@@ -24,7 +24,7 @@ export function Home() {
         {pets.map(pet => (
           <ul key={pet.id}>
             <li className="name">
-              <Link to="/1">{pet.name}</Link>
+              <Link to={`/${pet.id}`}>{pet.name}</Link>
             </li>
             <li>{pet.birthday}</li>
             <li>{pet.hunger}</li>
