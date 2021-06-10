@@ -14,39 +14,46 @@ export function Pets() {
     scoldings: null,
   })
 
+  const [happiness, setHappiness] = useState(pet.happinessLevel)
+
   const params = useParams()
-  // useEffect(function () {
-  //   async function loadStats() {
-  //     const response = await axios.get(
-  //       'https://tamagotchinate.herokuapp.com/api/Pets/${params.id}'
-  //     )
-  //     setPet(response.data)
-  //   }
-  //   loadStats()
-  // }, [])
 
-  useEffect(function () {
-    // Load data here
-    async function fetchPet() {
-      const response = await fetch(
-        `https://tamagotchinate.herokuapp.com/api/Pets/${params.id}`
-      )
+  useEffect
+  async function fetchPet() {
+    const response = await fetch(
+      `https://tamagotchinate.herokuapp.com/api/Pets/${params.id}`
+    )
 
-      if (response.status === 200) {
-        const json = await response.json()
-        setPet(json)
-      }
+    if (response.status === 200) {
+      const json = await response.json()
+      setPet(json)
     }
+  }
 
-    fetchPet()
-  }, [])
+  fetchPet(), []
+
+  async function handleAddHappiness() {
+    const response = await axios.post(
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Playtimes`,
+      {}
+    )
+
+    if (response.status === 200) {
+      fetchPet()
+    }
+  }
 
   return (
     <>
-      <h2>{pet.name}</h2>
-      <p>{pet.birthday}</p>
-      <p>{pet.hungerLevel}</p>
-      <p>{pet.happinessLevel}</p>
+      <h2>Name: {pet.name}</h2>
+      <p>Birthday: {pet.birthday}</p>
+      <p>Hunger: {pet.hungerLevel}</p>
+      <p>Happiness: {pet.happinessLevel}</p>
+
+      <button onClick={handleAddHappiness}>Play with Pet</button>
+      <button>Feed the Pet</button>
+      <button>Scold the Pet</button>
+      <button>delete</button>
     </>
   )
 }

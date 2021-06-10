@@ -26,9 +26,9 @@ export function Home() {
             <li className="name">
               <Link to={`/${pet.id}`}>{pet.name}</Link>
             </li>
-            <li>{pet.birthday}</li>
-            <li>{pet.hunger}</li>
-            <li>{pet.happiness}</li>
+            <li>Birthday: {pet.birthday}</li>
+            <li>Hunger: {pet.hungerLevel}</li>
+            <li>Happiness: {pet.happinessLevel}</li>
           </ul>
         ))}
       </div>
