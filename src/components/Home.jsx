@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 export function Home() {
   const [pets, setPets] = useState([])
+  const [newPet, setNewPet] = useState('')
 
   useEffect
   async function loadPets() {
@@ -16,10 +17,14 @@ export function Home() {
 
   loadPets(), []
 
-  async function handleAdd() {
+  async function handleAdd(event) {
+    console.log(`hello ${newPet}`)
+    event.preventDefault()
     const response = await axios.post(
       `https://tamagotchinate.herokuapp.com/api/Pets/`,
-      {}
+      {
+        name: newPet,
+      }
     )
 
     if (response.status === 200) {
@@ -44,7 +49,14 @@ export function Home() {
       </div>
       <form onSubmit={handleAdd}>
         <label>Enter Pet Name</label>
-        <input type="text" placeholder="New Pet Name"></input>
+        <input
+          type="text"
+          placeholder="New Pet Name"
+          value={newPet}
+          onChange={function (event) {
+            setNewPet(event.target.value)
+          }}
+        ></input>
       </form>
     </>
   )

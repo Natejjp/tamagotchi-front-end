@@ -29,7 +29,7 @@ export function Pets() {
     }
   }
 
-  loadPet(), [pet.happinessLevel]
+  loadPet(), [params.id, pet.happinessLevel]
 
   async function handlePlay() {
     const response = await axios.post(
