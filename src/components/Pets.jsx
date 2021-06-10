@@ -18,7 +18,7 @@ export function Pets() {
   const history = useHistory()
 
   useEffect
-  async function fetchPet() {
+  async function loadPet() {
     const response = await fetch(
       `https://tamagotchinate.herokuapp.com/api/Pets/${params.id}`
     )
@@ -29,17 +29,13 @@ export function Pets() {
     }
   }
 
-  fetchPet(), []
+  loadPet(), [pet.happinessLevel]
 
   async function handlePlay() {
     const response = await axios.post(
       `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Playtimes`,
       {}
     )
-
-    if (response.status === 200) {
-      fetchPet()
-    }
   }
 
   async function handleFeed() {
@@ -47,9 +43,6 @@ export function Pets() {
       `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Feedings`,
       {}
     )
-
-    if (response.status === 200) {
-    }
   }
 
   async function handleScold() {
@@ -57,10 +50,6 @@ export function Pets() {
       `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Scoldings`,
       {}
     )
-
-    if (response.status === 200) {
-      fetchPet()
-    }
   }
 
   async function handleDelete() {

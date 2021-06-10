@@ -5,17 +5,27 @@ import { Link } from 'react-router-dom'
 export function Home() {
   const [pets, setPets] = useState([])
 
-  useEffect(function () {
-    async function loadPets() {
-      const response = await axios.get(
-        'https://tamagotchinate.herokuapp.com/api/Pets'
-      )
+  useEffect
+  async function loadPets() {
+    const response = await axios.get(
+      'https://tamagotchinate.herokuapp.com/api/Pets'
+    )
 
-      setPets(response.data)
+    setPets(response.data)
+  }
+
+  loadPets(), []
+
+  async function handleAdd() {
+    const response = await axios.post(
+      `https://tamagotchinate.herokuapp.com/api/Pets/`,
+      {}
+    )
+
+    if (response.status === 200) {
+      loadPets()
     }
-
-    loadPets()
-  }, [])
+  }
 
   return (
     <>
@@ -32,6 +42,10 @@ export function Home() {
           </ul>
         ))}
       </div>
+      <form onSubmit={handleAdd}>
+        <label>Enter Pet Name</label>
+        <input type="text" placeholder="New Pet Name"></input>
+      </form>
     </>
   )
 }
