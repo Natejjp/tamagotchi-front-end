@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 export function Pets() {
   const [pet, setPet] = useState({
@@ -15,6 +15,7 @@ export function Pets() {
   })
 
   const params = useParams()
+  const history = useHistory()
 
   useEffect
   async function fetchPet() {
@@ -48,7 +49,6 @@ export function Pets() {
     )
 
     if (response.status === 200) {
-      fetchPet()
     }
   }
 
@@ -63,6 +63,16 @@ export function Pets() {
     }
   }
 
+  async function handleDelete() {
+    const response = await axios.delete(
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}`,
+      {}
+    )
+
+    if (response.status === 200) {
+      history.push('/')
+    }
+  }
   return (
     <>
       <h2>Name: {pet.name}</h2>
@@ -73,7 +83,7 @@ export function Pets() {
       <button onClick={handlePlay}>Play with Pet</button>
       <button onClick={handleFeed}> Feed the Pet</button>
       <button onClick={handleScold}>Scold the Pet</button>
-      <button>delete</button>
+      <button onClick={handleDelete}>delete</button>
     </>
   )
 }
