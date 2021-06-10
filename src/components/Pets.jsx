@@ -84,6 +84,10 @@ export function Pets() {
       <button onClick={handleFeed}> Feed the Pet</button>
       <button onClick={handleScold}>Scold the Pet</button>
       <button onClick={handleDelete}>delete</button>
+
+      <button>
+        <Link to="/">Back Home</Link>
+      </button>
     </>
   )
 }
