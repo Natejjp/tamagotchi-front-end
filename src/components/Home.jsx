@@ -18,7 +18,6 @@ export function Home() {
   loadPets(), []
 
   async function handleAdd(event) {
-    console.log(`hello ${newPet}`)
     event.preventDefault()
     const response = await axios.post(
       `https://tamagotchinate.herokuapp.com/api/Pets/`,
@@ -30,6 +29,7 @@ export function Home() {
     if (response.status === 200) {
       loadPets()
     }
+    setNewPet('')
   }
 
   return (
