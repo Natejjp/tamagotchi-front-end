@@ -38,7 +38,7 @@ export function Home() {
   }
 
   if (loading) {
-    return <h1>Loading....</h1>
+    return <h1 className="loading">Loading....</h1>
   }
   return (
     <>
@@ -56,7 +56,7 @@ export function Home() {
         ))}
       </div>
       <form className="form" onSubmit={handleAdd}>
-        <label>Enter Pet Name:</label>
+        <h2 className="title">Enter Pet Name</h2>
         <input
           type="text"
           placeholder="New Pet Name"

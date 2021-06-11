@@ -14,7 +14,6 @@ export function App() {
         <Route exact path="/:id">
           <Pets />
         </Route>
-
         <Route path="*">Not Found</Route>
       </Switch>
     </Layout>
