@@ -9,14 +9,14 @@ function getDate(birthday) {
 export function Home() {
   const [pets, setPets] = useState([])
   const [newPet, setNewPet] = useState('')
-  const [searchPet, setSearchPet] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect
   async function loadPets() {
     const response = await axios.get(
       'https://tamagotchinate.herokuapp.com/api/Pets'
     )
-
+    setLoading(false)
     setPets(response.data)
   }
 
@@ -37,20 +37,9 @@ export function Home() {
     setNewPet('')
   }
 
-  // async function test(event, searchPet) {
-  //   event.preventDefault()
-  //   let foundPet = pets.map(pet => pet.name).includes(`${searchPet}`)
-  //   if (foundPet === true) {
-  //     console.log('hello')
-  //     const response = await axios.get(
-  //       `https://tamagotchinate.herokuapp.com/api/Pets/${searchPet.id}`
-  //     )
-  //   }
-  //   // let pineapple = foundPet.find(pet => pet === `${searchPet}`)
-
-  //   console.log(`${searchPet}`)
-  // }
-
+  if (loading) {
+    return <h1>Loading....</h1>
+  }
   return (
     <>
       <h2 className="title">Current Pets</h2>

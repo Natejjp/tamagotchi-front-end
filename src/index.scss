@@ -63,6 +63,7 @@ ul {
 
 li {
   padding: 0.5rem;
+  color: rgb(44, 44, 44);
 }
 
 .layout {
@@ -109,7 +110,7 @@ li {
 button {
   padding: 0.5rem;
   margin: 2px;
-  background-color: rgb(142, 220, 230);
+  background-color: rgb(142, 220, 230, 0.7);
 }
 .topButton:hover {
   background-color: #3e8e41;
@@ -134,10 +135,13 @@ button {
 .petPageSelection {
   background-color: rgb(255, 255, 255, 0.8);
   max-width: fit-content;
-  margin-top: 20px;
+  margin-top: 100px;
   padding: 0.5rem;
   border-radius: 5px;
+  border: 2px solid black;
   font-size: larger;
+  box-shadow: 20px -10px #fff9a5, -20px -10px #fff9a5, 20px 10px #fff9a5,
+    -20px 10px #fff9a5;
 }
 
 #petPage {

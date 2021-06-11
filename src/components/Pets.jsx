@@ -18,6 +18,7 @@ export function Pets() {
     feedings: null,
     scoldings: null,
   })
+  const [loading, setLoading] = useState(true)
 
   const params = useParams()
   const history = useHistory()
@@ -31,6 +32,7 @@ export function Pets() {
     if (response.status === 200) {
       const json = await response.json()
       setPet(json)
+      setLoading(false)
     }
   }
 
@@ -72,6 +74,10 @@ export function Pets() {
     if (response.status === 200) {
       history.push('/')
     }
+  }
+
+  if (loading) {
+    return <h1>Loading....</h1>
   }
 
   return (
