@@ -9,6 +9,7 @@ function getDate(birthday) {
 export function Home() {
   const [pets, setPets] = useState([])
   const [newPet, setNewPet] = useState('')
+  const [searchPet, setSearchPet] = useState('')
 
   useEffect
   async function loadPets() {
@@ -36,6 +37,20 @@ export function Home() {
     setNewPet('')
   }
 
+  // async function test(event, searchPet) {
+  //   event.preventDefault()
+  //   let foundPet = pets.map(pet => pet.name).includes(`${searchPet}`)
+  //   if (foundPet === true) {
+  //     console.log('hello')
+  //     const response = await axios.get(
+  //       `https://tamagotchinate.herokuapp.com/api/Pets/${searchPet.id}`
+  //     )
+  //   }
+  //   // let pineapple = foundPet.find(pet => pet === `${searchPet}`)
+
+  //   console.log(`${searchPet}`)
+  // }
+
   return (
     <>
       <h2 className="title">Current Pets</h2>
@@ -51,8 +66,8 @@ export function Home() {
           </ul>
         ))}
       </div>
-      <form className="test" onSubmit={handleAdd}>
-        <label>Enter Pet Name</label>
+      <form className="form" onSubmit={handleAdd}>
+        <label>Enter Pet Name:</label>
         <input
           type="text"
           placeholder="New Pet Name"

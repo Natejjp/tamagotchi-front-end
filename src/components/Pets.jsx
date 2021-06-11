@@ -2,6 +2,11 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
 
+function getDate(birthday) {
+  const parts = birthday.split('T')
+  return parts[parts.length - 2]
+}
+
 export function Pets() {
   const [pet, setPet] = useState({
     id: 0,
@@ -33,50 +38,67 @@ export function Pets() {
 
   async function handlePlay() {
     const response = await axios.post(
-      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Playtimes`,
-      {}
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Playtimes`
     )
+
+    if (response.status === 200) {
+      loadPet()
+    }
   }
 
   async function handleFeed() {
     const response = await axios.post(
-      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Feedings`,
-      {}
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Feedings`
     )
+    if (response.status === 200) {
+      loadPet()
+    }
   }
 
   async function handleScold() {
     const response = await axios.post(
-      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Scoldings`,
-      {}
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}/Scoldings`
     )
+    if (response.status === 200) {
+      loadPet()
+    }
   }
 
   async function handleDelete() {
     const response = await axios.delete(
-      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}`,
-      {}
+      `https://tamagotchinate.herokuapp.com/api/Pets/${pet.id}`
     )
 
     if (response.status === 200) {
       history.push('/')
     }
   }
+
   return (
-    <>
+    <div className="petPageSelection">
       <h2>Name: {pet.name}</h2>
-      <p>Birthday: {pet.birthday}</p>
+      <p>Birthday: {getDate(pet.birthday)}</p>
       <p>Hunger: {pet.hungerLevel}</p>
       <p>Happiness: {pet.happinessLevel}</p>
-
-      <button onClick={handlePlay}>Play with Pet</button>
-      <button onClick={handleFeed}> Feed the Pet</button>
-      <button onClick={handleScold}>Scold the Pet</button>
-      <button onClick={handleDelete}>delete</button>
-
-      <button>
-        <Link to="/">Back Home</Link>
-      </button>
-    </>
+      <div>
+        <button className="topButton" onClick={handlePlay}>
+          Play with Pet
+        </button>
+        <button className="topButton" onClick={handleFeed}>
+          Feed the Pet
+        </button>
+        <button className="topButton" onClick={handleScold}>
+          Scold the Pet
+        </button>
+      </div>
+      <div className="bottomButtons">
+        <button className="bottomButton" onClick={handleDelete}>
+          Delete
+        </button>
+        <button className="bottomButton">
+          <Link to="/">Home</Link>
+        </button>
+      </div>
+    </div>
   )
 }

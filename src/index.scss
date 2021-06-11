@@ -1,5 +1,7 @@
 :root {
-  font: 16px / 1 sans-serif;
+  font: 14px / 1 sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 html {
@@ -17,9 +19,19 @@ body {
 
 .header,
 .footer {
-  background-color: rgb(105, 182, 168);
+  background-color: rgb(142, 220, 230, 0.6);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: large;
+}
+
+.header {
+  border-bottom: 1px solid black;
+  padding: 0.5rem;
+}
+
+.footer {
+  border-top: 1px solid black;
   padding: 1rem;
-  text-align: center;
 }
 .container {
   max-width: 80rem;
@@ -27,10 +39,16 @@ body {
   margin: auto;
 }
 
+#topPage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 a {
   &:link,
   &:visited {
-    color: white;
+    color: black;
     text-decoration: none;
   }
 }
@@ -39,10 +57,8 @@ ul {
   list-style: none;
   padding-left: 0;
   border: 2px solid black;
-  background-color: rgb(209, 255, 246);
-  box-shadow: 2px 2px grey;
-
-  // margin-bottom: -15px;
+  background-color: rgb(255, 255, 255, 0.7);
+  box-shadow: 1px 1px black;
 }
 
 li {
@@ -53,6 +69,9 @@ li {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: url('./images/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   .main {
     flex-grow: 1;
   }
@@ -69,7 +88,8 @@ li {
   font-size: 20px;
   text-align: center;
   margin-bottom: -5px;
-  background-color: rgb(105, 182, 168);
+  background-color: #fff9a5;
+  border-bottom: 2px solid black;
 }
 
 .name:hover {
@@ -77,10 +97,60 @@ li {
 }
 
 .title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 30px;
+}
+
+.form {
+  padding: 1rem;
   text-align: center;
 }
 
-.test {
-  padding: 1rem;
+button {
+  padding: 0.5rem;
+  margin: 2px;
+  background-color: rgb(142, 220, 230);
+}
+.topButton:hover {
+  background-color: #3e8e41;
+}
+
+.bottomButton:hover {
+  background-color: red;
+}
+
+.topButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.bottomButton:active {
+  background-color: red;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.petPageSelection {
+  background-color: rgb(255, 255, 255, 0.8);
+  max-width: fit-content;
+  margin-top: 20px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: larger;
+}
+
+#petPage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  margin-left: 0.5rem;
+  border: 30px, solid, black;
+}
+
+.bottomButtons {
   text-align: center;
 }
