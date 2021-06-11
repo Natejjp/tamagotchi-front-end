@@ -169,8 +169,9 @@ input {
   background-clip: text;
   color: transparent;
   font-size: 36px;
-  padding: 0.5rem;
+  padding: 1rem;
 }
+
 @media all and (min-width: 767px) {
   .pets {
     display: grid;
