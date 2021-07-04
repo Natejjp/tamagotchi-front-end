@@ -10,12 +10,15 @@ export function Home() {
   const [pets, setPets] = useState([])
   const [newPet, setNewPet] = useState('')
   const [loading, setLoading] = useState(true)
+  const [searchPet, setSearchPet] = useState('')
 
   useEffect
   async function loadPets() {
-    const response = await axios.get(
-      'https://tamagotchinate.herokuapp.com/api/Pets'
-    )
+    const url =
+      searchPet.length === 0
+        ? 'https://tamagotchinate.herokuapp.com/api/Pets'
+        : `https://tamagotchinate.herokuapp.com/api/Pets?search=${searchPet}`
+    const response = await axios.get(url)
     setLoading(false)
     setPets(response.data)
   }
