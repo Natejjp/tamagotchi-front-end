@@ -9,10 +9,6 @@ export function Layout({ children }) {
           <h1>
             <Link to="/">Tamagotchi</Link>
           </h1>
-          <form className="form">
-            <label>Search:</label>
-            <input type="text" placeholder="Search Tamagotchis"></input>
-          </form>
         </div>
       </header>
       <main className="main">

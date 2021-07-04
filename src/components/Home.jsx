@@ -46,6 +46,16 @@ export function Home() {
   return (
     <>
       <h2 className="title">Current Pets</h2>
+      <form className="form">
+        <input
+          type="text"
+          placeholder="Search Tamagotchis"
+          value={searchPet}
+          onChange={function (event) {
+            setSearchPet(event.target.value)
+          }}
+        ></input>
+      </form>
       <div className="pets">
         {pets.map(pet => (
           <ul key={pet.id}>
