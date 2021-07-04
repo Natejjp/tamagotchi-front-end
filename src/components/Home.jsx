@@ -23,7 +23,7 @@ export function Home() {
     setPets(response.data)
   }
 
-  loadPets(), []
+  loadPets(), [searchPet]
 
   async function handleAdd(event) {
     event.preventDefault()
